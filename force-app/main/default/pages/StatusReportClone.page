@@ -1,0 +1,25 @@
+<apex:page standardController="Status_Report__c" extensions="StatusReportCloneExt">
+    <apex:form >
+    <apex:pageBlock title="Report Items">
+    	<apex:pagemessages />
+        <apex:pageBlockButtons >
+            <apex:commandButton action="{!createStatusReport}" value="Save"/>
+            <apex:commandButton action="{!cancel}" value="Cancel"/>
+        </apex:pageBlockButtons>
+        <apex:pageBlockTable value="{!Status_Report__c.Report_Items__r}" var="item">
+            <apex:column headerValue="Name">
+                <apex:outputField value="{!item.name}" rendered="{!item.Status__c == "Open"}"/>
+            </apex:column>
+            <apex:column headerValue="Category">
+                <apex:outputField value="{!item.Category__c}" rendered="{!item.Status__c == "Open"}"/>
+            </apex:column>
+            <apex:column headerValue="Action">
+                <apex:inputField value="{!item.Action__c}" rendered="{!item.Status__c == "Open"}"/>
+            </apex:column>
+            <apex:column headerValue="Comments">
+                <apex:inputField value="{!item.Comments__c }" rendered="{!item.Status__c == "Open"}"/>
+            </apex:column>
+        </apex:pageBlockTable> 
+    </apex:pageBlock> 
+    </apex:form>
+</apex:page>

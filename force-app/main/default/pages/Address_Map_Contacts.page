@@ -1,0 +1,48 @@
+<apex:page standardController="Account" docType="html-5.0" showHeader="false" sidebar="false" standardStylesheets="false" >
+    <style>
+      #map {
+        width: 100%;
+        height: 200px;
+      }
+    </style>
+
+    <div id="map">Loading map ...</div>
+
+    <script>
+
+        renderMap = function (canvas, latitude, longitude) {
+            var latLng = {lat: latitude, lng: longitude};
+            var map = new google.maps.Map(canvas, {
+                center: latLng,
+                zoom: 14
+            });
+            var marker = new google.maps.Marker({
+                position: latLng,
+                map: map,
+                title: 'You Are Here'
+            });
+        }
+        
+          function initMap() {
+            var mapDiv = document.getElementById('map');
+            
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function (position) {
+                        renderMap(mapDiv, position.coords.latitude, position.coords.longitude);
+
+                    },
+                    function(error) {
+                        document.getElementById('map').innerHTML = 'Error:' + error.code + ' x ' + error.message;
+                    }
+                );
+                
+            } else {
+                document.getElementById('map').innerHTML = 'Geolocation not supported';
+            }
+    
+          }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
+
+</apex:page>

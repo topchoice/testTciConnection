@@ -1,0 +1,10 @@
+<apex:page standardController="Location__c" extensions="loc1">
+
+    {!hello}<p/>
+    {!mylocation}<p/>
+    
+    <apex:form >
+        <h1><apex:outputtext > {!Location__c.Name} </apex:outputtext></h1><br />
+    </apex:form>
+    
+</apex:page>

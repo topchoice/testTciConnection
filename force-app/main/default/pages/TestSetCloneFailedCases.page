@@ -1,0 +1,47 @@
+<apex:page standardController="Test_Set__c" extensions="TestSetExt">
+    <script>
+        function checkAll(cb){
+            var inputElem = document.getElementsByTagName("input");
+            for(var i=0; i < inputElem.length; i++){
+                if(inputElem[i].id.indexOf("checkedone")!=-1)
+                inputElem[i].checked = cb.checked;
+            }
+        }
+    </script>
+    <apex:form >
+        <apex:pageBlock id="pbTests">
+            <apex:pageMessages />
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!cloneTests}" value="Clone with Failed Test">
+                    <apex:actionsupport event="onclick" rerender="pbTests" />
+                </apex:commandButton>
+                <apex:commandButton value="Cancel" action="{!cancel}" rerender="table"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!tests}" var="tc" id="table">
+                <apex:column headerValue="Select" width="25px">
+                    <apex:facet name="header">
+                    <apex:inputCheckbox >
+                        <apex:actionsupport event="onclick" onsubmit="checkAll(this)" rerender="Selected_PBS"/>
+                    </apex:inputCheckbox>
+                    </apex:facet>
+                    <apex:inputCheckbox value="{!tc.Selected__c}" id="checkedone" rendered="{!tc.Result__c == "Fail"}" />
+                </apex:column>
+                <apex:column headerValue="Name">
+                    <apex:outputField value="{!tc.Name}" rendered="{!tc.Result__c == "Fail"}"/>
+                </apex:column>
+                <apex:column headerValue="Test Case">
+                    <apex:outputField value="{!tc.Test_Case__c}" rendered="{!tc.Result__c == "Fail"}"/>
+                </apex:column>                
+                <apex:column headerValue="Summery">
+                    <apex:outputField value="{!tc.Summary__c}" rendered="{!tc.Result__c == "Fail"}"/>
+                </apex:column>                
+                <apex:column headerValue="Test Step">
+                    <apex:outputField value="{!tc.Test_Steps__c}" rendered="{!tc.Result__c == "Fail"}"/>
+                </apex:column>                
+                <apex:column headerValue="Result">
+                    <apex:outputField value="{!tc.Result__c}" rendered="{!tc.Result__c == "Fail"}"/>
+                </apex:column>                
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

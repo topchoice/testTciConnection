@@ -1,0 +1,30 @@
+<apex:page controller="GroupsController">
+    <br/>
+    <div style="padding:30px;">
+        <apex:form >
+            <div style="text-align:left;">
+                <b style="padding-bottom:15px;">Select an available public group, and then click the List Users button to display users within the public group.</b>
+            </div>
+            <div style="text-align:center;">
+                <b style="padding-bottom:15px;">Available Public Groups</b>
+                <br/>
+                <apex:selectList value="{!selectedVal}" size="8" style="width:305px;">
+                    <apex:selectOptions value="{!groupsList}"/>
+                </apex:selectList>
+            </div>
+            <br/>
+            <center><apex:commandButton action="{!setmyValue}" reRender="textDisplay" value="List Users"/></center>
+            <br/>
+            <div style="text-align:center;">
+                <b style="padding-bottom:15px;">Available Users</b>
+                <br/>
+                <apex:outputPanel id="textDisplay">
+                    <apex:selectList value="{!selectedVal1}"  size="10" style="width:305px;">
+                        <apex:selectOptions value="{!users_id}"/>
+                    </apex:selectList>
+                </apex:outputPanel>
+            </div>
+        </apex:form>
+    </div>
+    <flow:interview name="Add_or_Remove_User_from_Groups"/>  
+</apex:page>

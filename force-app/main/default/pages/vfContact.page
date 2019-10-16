@@ -1,0 +1,5 @@
+<apex:page standardController="Contact" extensions="con1">
+
+    {!Hello}
+
+</apex:page>

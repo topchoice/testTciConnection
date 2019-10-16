@@ -1,0 +1,15 @@
+<apex:page StandardController="Location__c" recordSetVar="locs">
+    <apex:form >
+        <apex:pageBlock title="List of Locations">
+            <apex:pageBlockTable value="{!locs}" var="l">
+                <apex:column value="{!l.Insured__c}"/>
+                <apex:column value="{!l.Address__c}"/>
+                <apex:column value="{!l.Zip__c}"/>
+            </apex:pageBlockTable>
+            
+            <apex:inlineEditSupport />
+    
+        </apex:pageBlock>
+        <apex:commandButton value="Save" action="Quicksave"/>
+    </apex:form>
+</apex:page>

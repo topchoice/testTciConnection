@@ -1,0 +1,13 @@
+<apex:page standardController="Ticket__c" extensions="TicketRequirementGenerateExt" >
+  <apex:form >
+    <apex:pageBlock >
+    <apex:pagemessages />
+      <apex:messages />
+        <apex:pageBlockButtons >
+          <apex:commandButton value="Process" action="{!generateRequirement}"/>
+        </apex:pageBlockButtons>
+        <apex:outputText value="Are you sure to Generate a new requirement for Ticket: {!Ticket__c.Summary__c}? " /><br></br>
+        <apex:outputText value="{!Ticket__c.Description__c}" />
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

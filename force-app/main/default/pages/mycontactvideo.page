@@ -1,0 +1,12 @@
+<apex:page standardController="Account" showheader="false">
+ <apex:form >
+     
+ 
+ 
+ </apex:form>
+ 
+ 
+ 
+ 
+ 
+</apex:page>

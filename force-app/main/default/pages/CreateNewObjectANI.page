@@ -1,0 +1,97 @@
+<apex:page >
+                <apex:form >
+                <apex:image url="https://netstorage.ringcentral.com/salesforce/images/rc_logo116by31px.png" width="116" 
+height="31"/>
+                <br />
+<span><b>No matching    records were    found   for the phone   number  
+<apex:outputLabel >{!$CurrentPage.parameters.ANI}</apex:outputLabel></b></span>
+<hr />                                                  
+<div    class="list1">
+<div    class="bRelatedList"    id="Account">                                                               
+<apex:outputpanel >
+<apex:pageBlock >
+<div    class="pbHeader">
+<table  border="0"  cellpadding="0" cellspacing="0" 
+summary="Companies">
+<tbody>
+<tr><td class="pbTitle">
+<img    src="/s.gif"    alt=""  
+width="1"   height="1"  class="minWidth"    title=""/><img  src="/s.gif"    alt=""  class="relatedListIcon" title=""/>
+<h3><span   
+class="searchFirstCell">Companies</span></h3>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<span   class="errorMsg">
+Record  not found   ... <a  
+href="/001/e?acc10={!$CurrentPage.parameters.ANI}&retURL=%2F001%2Fo">Create New Company</a>
+</span>
+</apex:pageBlock>
+</apex:outputpanel>                                         
+</div>
+</div>
+<!-- Contact    -->
+<div    class="list0">
+<div    class="bRelatedList"    id="Contact"><a name="Contact_target"></a>
+<apex:outputpanel id="srchErrorDiv_Contact">
+<apex:pageBlock >
+<div    class="pbHeader">
+<table  border="0"  cellpadding="0" cellspacing="0" 
+summary="Contacts">
+<tbody>
+<tr>
+<td class="pbTitle">
+<img    src="/s.gif"    alt=""  
+width="1"   height="1"  class="minWidth"    title=""/><img  src="/s.gif"    alt=""  class="relatedListIcon" title=""/>
+<h3><span   
+class="searchFirstCell">Contact</span></h3>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<span   class="errorMsg">
+Record  not found   ... <a  
+href="/003/e?con10={!$CurrentPage.parameters.ANI}&con14={!$CurrentPage.parameters.ANI}&retURL=%2F001%2Fo">Cr
+eate    New Contact</a>
+</span>
+</apex:pageBlock>
+</apex:outputpanel>
+<!-- WrappingClass  -->                                                         
+<div    class="listElementBottomNav"></div>
+<!-- End    ListElement -->
+</div>
+<!-- End    RelatedListElement  -->
+</div>
+<!-- Lead   -->
+<div    class="list2"><div  class="bRelatedList"    id="Lead"><a    name="Lead_target"></a>                                             
+<!-- motif: Lead    -->
+<apex:outputpanel id="srchErrorDiv_Lead">
+<apex:pageBlock >
+<div    class="pbHeader">
+<table  border="0"  cellpadding="0" cellspacing="0" summary="Contacts">
+<tbody>
+<tr>
+<td class="pbTitle">
+<img    src="/s.gif"    alt=""  width="1"   
+height="1"  class="minWidth"    title=""/><img  src="/s.gif"    alt=""  class="relatedListIcon" title=""/>
+<h3><span   
+class="searchFirstCell">Lead</span></h3>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<span   class="errorMsg">
+Record  not found   ... <a  
+href="/00Q/e?lea8={!$CurrentPage.parameters.ANI}&retURL=%2F001%2Fo">Create  New Lead</a>
+</span>
+</apex:pageBlock>
+</apex:outputpanel> 
+</div>
+<!-- End    RelatedListElement  -->
+</div>
+                </apex:form>
+</apex:page>

@@ -1,0 +1,29 @@
+<apex:page standardController="Group" extensions="Publicgroup" sidebar="{!!isExport}" showHeader="{!!isExport}" standardStylesheets="false" contentType="{!IF(isExport = true, 'application/vnd.ms-excel#report.xls', '')}">
+<apex:form id="theform"><br/><br/>
+<apex:pageBlock >
+<apex:actionFunction action="{!getGroupMembers}" name="PublicGroups">
+                    <apex:param assignTo="{!groupid}" value="Group"/>
+                    </apex:actionfunction>
+                    <div >
+                                    <apex:outputText value="Public Groups:  " />
+                                    <apex:selectList value="{!Groupid}" multiselect="false" size="1" onchange="PublicGroups(this.value)" id="Group">
+                                    <apex:selectOptions value="{!grouplist}" />
+                                    <apex:actionSupport event="onchange" status="thestatus" reRender="resTable"/>
+                                    </apex:selectList><br/><br/>
+                    </div>
+                     <apex:outputPanel id="resTable">
+                     <apex:commandButton action="{!export}" value="Export" rendered="{!AND(isExport = false, users.size != 0)}" reRender=""/><br/> <br/>
+                     <apex:pageBlockSection title="Group Members">
+                     <apex:pageBlockTable value="{!users}" var="u"  rendered="{!(users.size != 0)}">
+                                                <apex:column headerValue="Group Name" value="{!Group_Name[u.id]}"/>
+                                                <apex:column value="{!u.name}" headerValue="Name" />
+                                                <apex:column value="{!u.userrole.name}" headerValue="Role"/>
+                                                <apex:column value="{!u.profile.name}" headerValue="Profile"/>
+                                                <apex:column value="{!u.username}" headerValue="UserName"/>
+                                                <apex:column value="{!u.Email}" headerValue="Email"/>
+                                                </apex:pageBlockTable>
+                                                </apex:pageBlockSection>
+                      </apex:outputPanel>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

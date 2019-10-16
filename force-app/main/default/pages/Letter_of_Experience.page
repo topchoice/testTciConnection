@@ -1,0 +1,50 @@
+<apex:page renderAs="pdf" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" standardController="Policy__c">
+    <html>
+    <head>
+         <style>
+            @page {
+                size: letter;
+                margin: 25mm;
+                @top-center {
+                    content: "Sample";
+                }
+                @bottom-center {
+                    content: "Page " counter(page) " of " counter(pages);
+                }
+            }
+            .page-break {
+                display:block;
+                page-break-after:always;
+            }
+            body {
+                font-family: Arial Unicode MS;
+            }
+        </style>
+    </head>
+    <body>
+    <div class="page-break">
+        <img alt="" src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000004PTT0&oid=00Di0000000JElI&lastMod=1411371346000" width="106" height="95"></img></div>
+    <apex:form ><p>Policy Number <apex:inputField value="{!Policy__c.Quote_Number__c}"/></p>
+    
+    <p>REQUEST FOR REINSTATEMENT</p>
+    
+    I, <apex:inputfield value="{!Policy__c.Insured__c}"/>, the named insured of the above policy,<br>
+    effective <apex:inputfield value="{!Policy__c.Effective_Date__c}"/>, warrant that there have been no accidents,<br> 
+    damages or happenings whatsoever during the period from <apex:inputfield value="{!Policy__c.LOE_From_Date__c}"/>, <br>
+    12:01a.m. <apex:param value="{!Now()}" /> to  that have resulted or may result in claims against my insurance policy with <br>
+    MGA Insurance Company, Inc. for any loss and/or expense for which said company<br>
+    would be liable under the above numbered policy if it is reinstated.</br></br></br></br></br><p>
+    
+    It is understood that the above statement is the consideration for reinstatement<br>
+    of the above numbered policy as of the cancellation if acceptable to <apex:inputField value="{!Policy__c.Insurance_Company__c}"/> Insurance Company.<br>
+    It is further understood that if a loss did <br>
+    occur during the period described above, no coverage will be afforded for said loss<br>
+    under this policy.</br></br></br></br>
+    <p>
+    <p>
+    <p>
+    <p>
+    Policyholder Signature ________________________ Date_______________________</p></p></p></p>
+    </p></apex:form></body>
+   </html>
+</apex:page>

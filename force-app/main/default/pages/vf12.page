@@ -1,0 +1,16 @@
+<apex:page standardcontroller="Contact">
+    <apex:pageBlock title="Tabbed view of Contact">
+        <apex:tabPanel switchType="ajax">
+            <apex:tab label="Details" labelwidth="200">
+                <apex:detail title="false" relatedList="false"/>
+            </apex:tab>
+            
+            <apex:tab label="Contacts" labelwidth="200">
+                <apex:relatedList list="Contacts"/>
+            </apex:tab>
+      
+        </apex:tabPanel>
+      
+    </apex:pageBlock>
+
+</apex:page>

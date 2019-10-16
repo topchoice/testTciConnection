@@ -1,0 +1,71 @@
+<apex:page renderAs="pdf" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="true" standardController="Policy__c">
+    <html>
+    <head>
+         <style>
+            @page {
+                size: letter;
+                margin: 25mm;
+                @top-center {
+                    content: "Sample";
+                }
+                @bottom-center {
+                    content: "Page " counter(page) " of " counter(pages);
+                }
+            }
+            .page-break {
+                display:block;
+                page-break-after:always;
+            }
+            body {
+                font-family: Arial Unicode MS;
+            }
+        </style>
+    </head>
+    <body>
+    <div class="page-break">
+        <img alt="" src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000004PTT0&oid=00Di0000000JElI&lastMod=1411371346000" width="106" height="95"></img></div>
+    <apex:form >
+    
+    <p><h3>INDEPENDENT CONTRACTOR PRODUCER AGREEMENT</h3></p>
+    
+    This agreement is made this____ day of ________,   20____, between Top Choice Insurance Agency, LLC 
+    referred to as "TCI Agency", and ____________________________, hereafter referred to as “Producer” for
+    and in consideration of their mutual promises and agreements and for their mutual benefit.  The parties have 
+    agreed to the following facts, terms and conditions: <p>
+
+    WHEREAS:    TCI Agency is an Arizona corporation and licensed insurance agency in the State of Arizona; and <br>
+    WHEREAS:    Producer is a licensed insurance agent in the State of Arizona; and <br>
+    WHEREAS:    TCI Agency desires to expand its business through the services of Producer as an independent contractor; and <br>
+    WHEREAS:    Producer desires to utilize TCI Agency’s markets for placing insurance coverage for customers and to solicit new customers for TCI Agency. </br></br></br></p>
+    
+    NOW, THEREFORE, in consideration of the mutual promises made herein, the parties agree as follows: <br>
+    1.  AGREEMENT: TCI Agency and Producer hereby agree  to  a  contractual  relationship,  whereby  Producer 
+    will provide  independent  services  as  an independent contractor to TCI Agency. This is not an 
+    employment agreement and nothing in this Agreement shall be construed to suggest that Producer in an 
+    employee of TCI Agency. In performing the services set forth below Producer shall have the sole right to 
+    determine the means and methods of performing the services.</br><p>
+    
+    2.  SERVICES:  Producer agrees to provide the following services for TCI Agency:<br>
+        <br style="margin-left: 40px">a.  Develops base for long-term sources of clients by using referrals, occupational, and special-interest</br>
+        <br style="margin-left: 56px">groups to compile lists of prospects.</br>
+        <br style="margin-left: 40px">b.  Approaches potential clients by utilizing mailings and phone solicitation; making  </br>
+        <br style="margin-left: 56px">presentations to groups at company-sponsored gatherings; speaking publicly to community groups on the subject of financial well-being.</br>
+        <br style="margin-left: 40px">c.  Determines clients' particular needs and financial situations by scheduling fact-finding appointments; </br>
+        <br style="margin-left: 56px">determining extent of present coverage and investments; ascertaining long-term goals.</br>
+        <br style="margin-left: 40px">d.  Develops a coordinated protection plan by calculating and quoting rates for immediate coverage action </br>
+        <br style="margin-left: 56px">and long-term strategy implementation.</br>
+        <br style="margin-left: 40px">e.  Obtains underwriting approval by completing application for coverage. </br>
+        <br style="margin-left: 40px">f.  Completes coverage by delivering policy; planning future follow-up visits and evaluations of needs. </br>
+        <br style="margin-left: 40px">g.  Updates job knowledge by participating in educational opportunities; reading professional publications; </br>
+        <br style="margin-left: 56px">and maintaining personal networks. </br>
+        <br style="margin-left: 40px">h.  Enhances insurance agency reputation by accepting ownership for accomplishing new and different requests; </br>
+        <br style="margin-left: 56px">exploring opportunities to add value to job accomplishments. </br></br></p>
+
+
+    
+    <p><b>Policyholder Signature:</b> ______________________________   <b>Date:</b> <apex:outputText value="   {0,date,MM/dd/yyyy 'at' HH:mm:ss z}"> <apex:param value="{!NOW()}" /> </apex:outputText> </p>
+    
+    </apex:form>
+    </body>
+   </html>
+</apex:page>

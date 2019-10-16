@@ -1,0 +1,21 @@
+<apex:page standardController="Report_Item__c" recordSetVar="ri">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pagemessages />
+            <apex:pageblockButtons >
+                <apex:commandButton value="Save" action="{!save}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageblockButtons>
+            <apex:pageblockSection title="Mass Update Selected Report Items" columns="1">
+                <apex:pageblockTable value="{!selected}" var="it">
+                    <apex:column headerValue="Report Name" value="{!it.Name}" />
+                    <apex:column headerValue="Category" value="{!it.Category__c}" />
+                    <apex:column headerValue="Action" value="{!it.Action__c}" />
+                    <apex:column headerValue="Status">
+                        <apex:inputfield value="{!it.Status__c}"/>
+                    </apex:column>      
+                </apex:pageblockTable>
+            </apex:pageblockSection>
+          </apex:pageBlock> 
+     </apex:form>
+</apex:page>

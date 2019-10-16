@@ -1,0 +1,21 @@
+<apex:page StandardController="Account" recordSetVar="acts">
+<apex:form >
+    <apex:pageBlock title="List of Accounts">
+        <apex:pageBlockTable value="{!acts}" var="a">
+            <apex:column value="{!a.Name}"/>
+            <apex:column headerValue="Phone">
+                <apex:inputField value="{!a.Phone}"/>
+            </apex:column>
+            <apex:column value="{!a.Website}"/>
+            <apex:column value="{!a.Type}"/>
+            <apex:column value="{!a.Active__c}"/>
+            
+        
+        </apex:pageBlockTable>
+    
+    </apex:pageBlock>
+    
+    <apex:commandButton value="Save" action="{!Quicksave}"/>
+    
+</apex:form>
+</apex:page>

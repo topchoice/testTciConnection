@@ -1,0 +1,25 @@
+<apex:page standardController="Contact" renderAs="PDF" showheader="false" sidebar="false">
+
+<apex:styleSheet value="{!URLFOR($Resource.Envelope)}" />
+
+    <apex:panelGrid columns="1">
+       
+        <apex:panelGroup >
+        </apex:panelGroup>
+        
+        
+    </apex:panelGrid>
+
+    <apex:panelGrid columns="1" style="padding-left:400px; margin-top:200px;width:100%">
+        <apex:panelGroup >
+            <apex:outputField value="{!Contact.name}"/>
+        </apex:panelGroup>
+        <apex:outputField value="{!Contact.mailingStreet}"/>
+        <apex:panelGroup >
+            <apex:outputField value="{!Contact.mailingCity}"/>,&nbsp;
+            <apex:outputField value="{!Contact.mailingState}"/>&nbsp;
+            <apex:outputField value="{!Contact.mailingPostalCode}"/>
+        </apex:panelGroup>
+    </apex:panelGrid>
+
+</apex:page>

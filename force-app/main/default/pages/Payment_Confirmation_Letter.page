@@ -1,0 +1,30 @@
+<apex:page renderAs="pdf" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" standardController="Confirmation__c">
+    <html>
+    <head>
+         
+    </head>
+    <body>
+    <div class="page-break">
+        <img alt="" src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000004PTT0&oid=00Di0000000JElI&lastMod=1411371346000" width="106" height="95"></img></div>
+    <apex:form ><p><b>IMPORTANT NOTICE!!</b></p>
+    
+    <p>{!Confirmation__c.Insured__c}<br>
+    {!Confirmation__c.Mailing_Street__c}<br>
+    {!Confirmation__c.Mailing_City__c}, {!Confirmation__c.Mailing_State__c}  {!Confirmation__c.Mailing_Zip__c}</br></br></p>
+    
+    <p>For Policy Number: <b>{!Confirmation__c.Policy_Number__c}</b></p>
+    
+    <p><b>Thank you for your payment.</b>  Your payment confirmation details for your {!Confirmation__c.Policy__r.Product_Issued__c} policy is listed below.<br>
+    Save this for your records.</br></p>
+    
+    <p><b>Payment Amount:</b> {!Confirmation__c.Payment_Amount__c}<br>
+    <b>Confirmation Number:</b> {!Confirmation__c.Confirmation_Number__c}<br>
+    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"><b>Payment Date:</b> <apex:param value="{!Confirmation__c.Payment_Date__c}"/></apex:outputText></br></br></p>
+    
+    <p>Thank you for allowing us to assist you with your insurance needs.</p>
+    
+    <p>The TCI Team</p>
+    
+    </apex:form></body>
+   </html>
+</apex:page>

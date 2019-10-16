@@ -1,0 +1,24 @@
+<apex:page standardcontroller="Contact" Extensions="e2">
+    <apex:pageBlock title="Tabbed view of Contact">
+        <apex:tabPanel switchType="ajax">
+            <apex:tab label="Details" labelwidth="200">
+                <apex:detail title="false" relatedList="false"/>
+            </apex:tab>
+            
+            <apex:tab label="Contacts" labelwidth="200">
+                <apex:relatedList list="Contacts"/>
+            </apex:tab>
+            
+            <apex:tab label="Campaigns" labelwidth="200">
+                <apex:pageBlockTable value="{!camps}" var="c">
+                    <apex:column value="{!c.Name}"/>
+                    <apex:column value="{!c.StartDate}"/>
+                    <apex:column value="{!c.EndDate}"/> 
+                </apex:pageBlockTable>
+            </apex:tab>
+      
+        </apex:tabPanel>
+      
+    </apex:pageBlock>
+
+</apex:page>

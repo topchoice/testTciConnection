@@ -1,0 +1,10 @@
+<apex:page standardcontroller="Contact" extensions="e1">
+    
+    <H1>WOW!!!!</H1>
+    {!abc}
+
+    {!Contact.Name}
+    {!Contact.Phone}
+    {!Contact.Email}
+
+</apex:page>

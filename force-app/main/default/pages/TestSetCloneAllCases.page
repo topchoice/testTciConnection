@@ -1,0 +1,39 @@
+<apex:page standardController="Test_Set__c" extensions="TestSetExt">
+    <script>
+        function checkAll(cb){
+            var inputElem = document.getElementsByTagName("input");
+            for(var i=0; i < inputElem.length; i++){
+                if(inputElem[i].id.indexOf("checkedone")!=-1)
+                inputElem[i].checked = cb.checked;
+            }
+        }
+    </script>
+    <apex:form >
+        <apex:pageBlock id="pbTests">
+            <apex:pageMessages />
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!cloneTests}" value="Clone with All Test">
+                    <apex:actionsupport event="onclick" rerender="pbTests" />
+                </apex:commandButton>
+                <apex:commandButton value="Cancel" action="{!cancel}" rerender="table"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!tests}" var="tc" id="table">
+                <apex:column headerValue="Select" width="25px">
+                    <apex:facet name="header">
+                    <apex:inputCheckbox >
+                        <apex:actionsupport event="onclick" onsubmit="checkAll(this)" rerender="Selected_PBS"/>
+                    </apex:inputCheckbox>
+                    </apex:facet>
+                    <apex:inputCheckbox value="{!tc.Selected__c}" id="checkedone">
+                        <apex:actionsupport event="onclick" rerender="Selected_PBS"/>
+                    </apex:inputCheckbox>
+                </apex:column>
+                <apex:column value="{!tc.Name}" />
+                <apex:column value="{!tc.Test_Case__c}" />
+                <apex:column value="{!tc.Summary__c}" />
+                <apex:column value="{!tc.Test_Steps__c}" />
+                <apex:column value="{!tc.Result__c}" />
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

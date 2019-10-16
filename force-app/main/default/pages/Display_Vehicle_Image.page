@@ -1,0 +1,16 @@
+<apex:page standardController="Vehicle__c" extensions="InputFileControllerExtension">
+    <apex:messages />
+    <apex:form id="theForm">
+        <apex:pageBlock >
+            <apex:pageBlockSection >
+                <apex:inputFile value="{!attachment.body}" filename="{!attachment.name}"/>
+                <apex:commandButton value="Save" action="{!save}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    <apex:pageBlock >
+        <apex:repeat value="{!Vehicle__c.attachments}" var="attachment">
+            <apex:image height="200px" value="{!URLFOR($Action.Attachment.Download, attachment.Id)}"/><p/>
+        </apex:repeat>
+    </apex:pageBlock>
+</apex:page>

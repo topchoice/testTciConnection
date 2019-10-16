@@ -1,0 +1,17 @@
+<apex:page controller="TestMSWord" contentType="application/msWord#msword.doc" >
+<html xmlns:w="urn:schemas-microsoft-com:office:word">
+<apex:outputText value="{!PrintView}" escape="false"/>
+<body>
+<p>Top Choice Insurance Agency, LLC</p>
+<p class="style1"><strong>LETTER OF EXPERIENCE</strong></p>
+<p class="style2">Re:</p>
+<p class="style2">To Whom It May Concern:</p>
+<p class="style2">This letter of experience is to confirm that &quot; &amp; [Client] &amp; &quot; 
+who lives at &quot; &amp; [Mailing Address] &amp; &quot; &quot; &amp; [City, State, Zip] &amp; &quot; has been 
+insured with &quot; &amp; [LastOfCurrent Ins Company] &amp; &quot; under policy number &quot; &amp; [LastOfCurrent 
+Ins Co Policy Number] &amp; &quot; for the period of &quot; &amp; [LastOfCurrent Ins Eff Date] &amp; &quot; 
+to &quot; &amp; [LastOfCurrent Ins Co Exp Date] &amp; &quot; with no lapse in coverage.&quot;</p>
+</body>
+
+</html>
+</apex:page>

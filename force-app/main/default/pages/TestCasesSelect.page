@@ -1,0 +1,33 @@
+<apex:page standardController="Test_Set__c" extensions="TestSetExt">
+    <script>
+        function checkAll(cb){
+            var inputElem = document.getElementsByTagName("input");
+            for(var i=0; i < inputElem.length; i++){
+                if(inputElem[i].id.indexOf("checkedone")!=-1)
+                inputElem[i].checked = cb.checked;
+            }
+        }
+    </script>
+    <apex:form >
+        <apex:pageBlock >
+        	<apex:pagemessages />
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Create Test" action="{!generateTests}" rerender="table"/>
+                <apex:commandButton value="Cancel" action="{!cancel}" rerender="table"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!TestCases}" var="tc" id="table">
+                <apex:column headerValue="Select" width="25px">
+                    <apex:facet name="header">
+                    <apex:inputCheckbox >
+                        <apex:actionsupport event="onclick" onsubmit="checkAll(this)" rerender="Selected_PBS"/>
+                    </apex:inputCheckbox>
+                    </apex:facet>
+                    <apex:inputCheckbox value="{!tc.selected}" id="checkedone">
+                        <apex:actionsupport event="onclick" rerender="Selected_PBS"/>
+                    </apex:inputCheckbox>
+                </apex:column>
+                <apex:column value="{!tc.tc.Name}" />
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
