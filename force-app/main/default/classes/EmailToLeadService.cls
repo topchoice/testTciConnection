@@ -6,7 +6,8 @@ Description : Email Service to Create Lead when an email is recieved
 Modification: N/A
 ***********************************/
 global class EmailToLeadService Messaging.InboundEmailHandler {
-    global Messaging.InboundEmailResult handleInboundEmail(Messaging.InboundEmail email, Messaging.InboundEnvelope envelope) {
+    global Messaging.InboundEmailResult handleInboundEmail(Messaging.InboundEmail email, 
+    Messaging.InboundEnvelope envelope) {
 		
         // Create an InboundEmailResult object for returning the result of the  
         // Apex Email Service
